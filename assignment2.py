@@ -23,10 +23,11 @@ def processData(data):
     dictionary_new = {}
 
     for number, lines in enumerate(show):
-        born = datetime.datetime.strptime(lines["birthday"], "%d/%m%y")
+        layout = "%d/%m%y"
+        born = datetime.datetime.strptime(lines["birthday"], layout)
         dictionary_new[lines["identification"]] = (lines["name"], born)
 
         logging.error(
-            "\nIssues Processing Line {} for ID# {}\n" .format(number, lines["identification"]))
+            "\nIssues Processing Line {} for ID# {}\n".format(number, lines["identification"]))
 
         return dictionary_new
