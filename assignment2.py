@@ -10,6 +10,7 @@ import argparse
 # This reads and downloads the data from url that was given
 def downloadData(url):
     data = urllib.request.urlopen(url)
+
     return data
 
 
@@ -31,3 +32,13 @@ def processData(data):
             "\nIssues Processing Line {} for ID# {}\n".format(number, lines["identification"]))
 
         return dictionary_new
+
+    def displayPerson(id, personData):
+        try:
+            response = "Person ID #{idnum} is {name} with a birthday of {date}"
+            print(response.format(idnum=id, name=personData[id][0], date=personData[id[1]]))
+        except KeyError:
+            print("")
+
+
+
